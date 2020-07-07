@@ -11,7 +11,8 @@ const activitySchema = new mongoose.Schema({
   userId: { type: String, required: true, maxlength: 128 },
   category: { type: String, required: true, maxlength: 128 },
   medium: { type: String, required: true, maxlength: 128 },
-  id: { type: String, required: true, maxlength: 128 }
+  id: { type: String, required: true, maxlength: 128 },
+  promoted: { type: Boolean }
 })
 
 // module.exports = mongoose.model('Activity', activitySchema);

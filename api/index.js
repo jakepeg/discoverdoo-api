@@ -5,7 +5,7 @@ const server = require("../lib");
 server.use(bodyParser.json());
 
 server.get('/api/v1/activities' , function (req , res) {
-  Activity.find({}).then(function (activitiesMongo) {
+  Activity.find({}).sort({ promoted: -1 }).then(function (activitiesMongo) {
   return res.json(activitiesMongo);
   });
  });
