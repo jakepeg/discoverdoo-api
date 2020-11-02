@@ -10,7 +10,6 @@ const activitySchema = new mongoose.Schema({
   website: { type: String, required: true, maxlength: 128 },
   userId: { type: String, required: true, maxlength: 128 },
   category: { type: String, required: true, maxlength: 128 },
-  categorySlug: { type: String, required: true, maxlength: 128 },
   medium: { type: String, required: true, maxlength: 128 },
   id: { type: String, required: true, maxlength: 128 },
   promoted: { type: Boolean }

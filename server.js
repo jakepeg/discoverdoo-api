@@ -5,6 +5,10 @@ const api = require("./api");
 const server = express();
 const port = process.env.PORT || 3001;
 
+// const corsOptions = {
+//   origin: 'http://localhost:3000',
+// }
+
 async function runServer() {
   await connect();
   server.use(cors());
