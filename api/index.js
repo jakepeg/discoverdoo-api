@@ -12,7 +12,8 @@ server.post('/api/v1/activities' , function (req , res) {
 });
 
 server.get('/api/v1/activities' , function (req , res) {
-  Activity.find().sort({ promoted: -1 }).then(function (activitiesMongo) {
+  // Activity.find().sort({ promoted: -1 }).then(function (activitiesMongo) {
+    Activity.find({ promoted: true }).then(function (activitiesMongo) {
   return res.json(activitiesMongo);
   });
  });
