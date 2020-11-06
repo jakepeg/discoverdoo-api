@@ -12,7 +12,6 @@ server.post('/api/v1/activities' , function (req , res) {
 });
 
 server.get('/api/v1/activities' , function (req , res) {
-  // Activity.find().sort({ promoted: -1 }).then(function (activitiesMongo) {
     Activity.find({ promoted: true }).then(function (activitiesMongo) {
   return res.json(activitiesMongo);
   });
@@ -28,6 +27,12 @@ server.get('/api/v1/activities' , function (req , res) {
 server.get('/api/v1/activities/:id' , function (req , res) {
   Activity.find({id: req.params.id}).then(function (activityMongo) {
   return res.json(activityMongo[0]);
+  });
+});
+
+server.get('/api/v1/myActivities/:uid' , function (req , res) {
+  Activity.find({ userId: req.params.uid }).then(function (activityMongo) {
+  return res.json(activityMongo);
   });
 });
 
