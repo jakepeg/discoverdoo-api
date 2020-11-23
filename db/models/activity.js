@@ -15,7 +15,5 @@ const activitySchema = new mongoose.Schema({
   promoted: { type: Boolean }
 })
 
-// module.exports = mongoose.model('Activity', activitySchema);
-
 const Activity = mongoose.model('Activity',activitySchema);
 exports.Activity = Activity;

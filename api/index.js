@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Activity = mongoose.model('Activity');
+const User = mongoose.model('User');
 const bodyParser = require("body-parser");
 const server = require("../lib");
 server.use(bodyParser.json());
@@ -12,11 +13,10 @@ server.post('/api/v1/activities' , function (req , res) {
 });
 
 server.post('/api/v1/register' , function (req , res) {
-  // const activityData = req.body;
-  console.log(req.body.username)
-  // Activity.create(activityData).then(function () {
-  //   return res.json("Activity succesfuly added!");
-  // });
+  const userData = req.body;
+  User.create(userData).then(function () {
+    return res.json("User succesfuly added!");
+  });
 });
 
 server.get('/api/v1/activities' , function (req , res) {
