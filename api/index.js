@@ -12,13 +12,6 @@ server.post('/api/v1/activities' , function (req , res) {
   });
 });
 
-server.post('/api/v1/register' , function (req , res) {
-  const userData = req.body;
-  User.create(userData).then(function () {
-    return res.json("User succesfuly added!");
-  });
-});
-
 server.get('/api/v1/activities' , function (req , res) {
     Activity.find({ promoted: true }).then(function (activitiesMongo) {
   return res.json(activitiesMongo);
@@ -55,6 +48,20 @@ server.delete('/api/v1/activities/:id' , function (req , res) {
   const { params: {id}} = req;
   Activity.findOneAndRemove({_id: id}).then(function () {
     return res.json("Activity succesfuly deleted!");
+  });
+});
+
+server.post('/api/v1/register' , function (req , res) {
+  const userData = req.body;
+  User.create(userData).then(function () {
+    return res.json("User succesfuly added!");
+  });
+});
+
+server.patch('/api/v1/favourites/:id' , function (req , res) {
+  const { body, params: {id}} = req;
+  User.findOneAndUpdate({user: id}, body, {new: true, runValidators: true}).then(function () {
+    return res.json("User succesfuly updated!");
   });
 });
 
