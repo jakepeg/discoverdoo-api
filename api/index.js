@@ -13,7 +13,7 @@ server.post('/api/v1/activities' , function (req , res) {
 
 server.post('/api/v1/register' , function (req , res) {
   // const activityData = req.body;
-  console.log(req)
+  console.log(req.body.username)
   // Activity.create(activityData).then(function () {
   //   return res.json("Activity succesfuly added!");
   // });
