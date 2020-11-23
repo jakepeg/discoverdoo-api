@@ -11,6 +11,14 @@ server.post('/api/v1/activities' , function (req , res) {
   });
 });
 
+server.post('/api/v1/register' , function (req , res) {
+  // const activityData = req.body;
+  console.log(req)
+  // Activity.create(activityData).then(function () {
+  //   return res.json("Activity succesfuly added!");
+  // });
+});
+
 server.get('/api/v1/activities' , function (req , res) {
     Activity.find({ promoted: true }).then(function (activitiesMongo) {
   return res.json(activitiesMongo);
