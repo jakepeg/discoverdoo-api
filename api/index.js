@@ -37,13 +37,6 @@ server.get('/api/v1/myActivities/:uid' , function (req , res) {
   });
 });
 
-server.patch('/api/v1/activities/:id' , function (req , res) {
-  const { body, params: {id}} = req;
-  Activity.findOneAndUpdate({_id: id}, body, {new: true, runValidators: true}).then(function () {
-    return res.json("Activity succesfuly updated!");
-  });
-});
-
 server.delete('/api/v1/activities/:id' , function (req , res) {
   const { params: {id}} = req;
   Activity.findOneAndRemove({_id: id}).then(function () {
@@ -58,9 +51,18 @@ server.post('/api/v1/register' , function (req , res) {
   });
 });
 
+server.patch('/api/v1/activities/:id' , function (req , res) {
+  const { body, params: {id}} = req;
+  Activity.findOneAndUpdate({_id: id}, body, {new: true, runValidators: true}).then(function () {
+    return res.json("Activity succesfuly updated!");
+  });
+});
+
 server.patch('/api/v1/favourites/:id' , function (req , res) {
   const { body, params: {id}} = req;
-  User.findOneAndUpdate({user: id}, body, {new: true, runValidators: true}).then(function () {
+  const uid = 'abc123';
+  const data = { user: 'abc123', favourites: { activity23: true } }
+  User.findOneAndUpdate({user: uid}, data, {new: true, runValidators: false}).then(function () {
     return res.json("User succesfuly updated!");
   });
 });
