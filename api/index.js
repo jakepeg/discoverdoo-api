@@ -60,9 +60,10 @@ server.patch('/api/v1/activities/:id' , function (req , res) {
 
 server.patch('/api/v1/favourites/:id' , function (req , res) {
   const { body, params: {id}} = req;
+  console.log(body);
   const uid = 'abc123';
-  const data = { user: 'abc123', favourites: { activity23: true, activity12321: true, activity43: true } }
-  User.findOneAndUpdate({user: uid}, data, {new: true, runValidators: false}).then(function () {
+  const data = { user: 'abc123', favourites: { activityabc: true, activity12: true, activity43: true } }
+  User.findOneAndUpdate({user: uid}, body, {new: true, runValidators: false}).then(function () {
     return res.json("User succesfuly updated!");
   });
 });
