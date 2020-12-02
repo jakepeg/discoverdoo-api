@@ -37,6 +37,12 @@ server.get('/api/v1/myActivities/:uid' , function (req , res) {
   });
 });
 
+server.get('/api/v1/userFavourites/:uid' , function (req , res) {
+  User.find({ user: req.params.uid }).then(function (userMongo) {
+  return res.json(userMongo);
+  });
+});
+
 server.delete('/api/v1/activities/:id' , function (req , res) {
   const { params: {id}} = req;
   Activity.findOneAndRemove({_id: id}).then(function () {
@@ -61,9 +67,7 @@ server.patch('/api/v1/activities/:id' , function (req , res) {
 server.patch('/api/v1/favourites/:id' , function (req , res) {
   const { body, params: {id}} = req;
   console.log(body);
-  const uid = 'abc123';
-  const data = { user: 'abc123', favourites: { activityabc: true, activity12: true, activity43: true } }
-  User.findOneAndUpdate({user: uid}, body, {new: true, runValidators: false}).then(function () {
+  User.findOneAndUpdate({user: id}, body, {new: true, runValidators: false}).then(function () {
     return res.json("User succesfuly updated!");
   });
 });
