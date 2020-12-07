@@ -23,7 +23,7 @@ const corsOptions = {
 
 async function runServer() {
   await connect();
-  server.use(cors(corsOptions));
+  // server.use(cors(corsOptions));
   server.use(api);
   server.listen(port, () => console.log(`API on port ${port}`));
 }
