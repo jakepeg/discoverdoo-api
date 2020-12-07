@@ -4,21 +4,21 @@ const { connect } = require('./db');
 const api = require("./api");
 const server = express();
 const port = process.env.PORT || 3001;
-let corsOptions = {}
+// let corsOptions = {}
 
-if (port === 3001) {
-  corsOptions = {
-    origin: 'http://localhost:3000',
-  }
-} else {
-  corsOptions = {
-    origin: 'https://discoverdoo.com',
-  }
-}
-
-// const corsOptions = {
-//   origin: 'https://discoverdoo.com',
+// if (port === 3001) {
+//   corsOptions = {
+//     origin: 'http://localhost:3000',
+//   }
+// } else {
+//   corsOptions = {
+//     origin: 'https://discoverdoo.com',
+//   }
 // }
+
+const corsOptions = {
+  origin: 'https://discoverdoo.com',
+}
 
 
 async function runServer() {
