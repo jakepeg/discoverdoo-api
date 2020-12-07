@@ -13,14 +13,14 @@ server.post('/api/v1/activities' , function (req , res) {
 });
 
 server.get('/api/v1/activities' , function (req , res) {
-    Activity.find({ promoted: true }).then(function (activitiesMongo) {
+    Activity.find({ promoted: true, published: true }).then(function (activitiesMongo) {
   return res.json(activitiesMongo);
   });
  });
 
  server.get('/api/v1/activitiesByCategory/:cat' , function (req , res) {
   var regex = new RegExp(req.params.cat, 'i');
-  Activity.find({category: regex}).then(function (activitiesMongo) {
+  Activity.find({category: regex, published: true }).then(function (activitiesMongo) {
   return res.json(activitiesMongo);
   });
  });

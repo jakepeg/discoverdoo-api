@@ -12,7 +12,8 @@ const activitySchema = new mongoose.Schema({
   category: { type: String, required: true, maxlength: 128 },
   medium: { type: String, required: true, maxlength: 128 },
   id: { type: String, required: true, maxlength: 128 },
-  promoted: { type: Boolean }
+  promoted: { type: Boolean },
+  published: { type: Boolean, required: true }
 })
 
 const Activity = mongoose.model('Activity',activitySchema);

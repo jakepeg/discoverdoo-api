@@ -4,9 +4,16 @@ const { connect } = require('./db');
 const api = require("./api");
 const server = express();
 const port = process.env.PORT || 3001;
+let corsOptions = {}
 
-const corsOptions = {
-  origin: 'https://discoverdoo.com',
+if (process.env.NODE_ENV === 'production') {
+  corsOptions = {
+    origin: 'https://discoverdoo.com',
+  }
+} else {
+  corsOptions = {
+    origin: 'http://localhost:3000',
+  }
 }
 
 async function runServer() {
