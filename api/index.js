@@ -8,7 +8,7 @@ server.use(bodyParser.json());
 server.post('/api/v1/activities' , function (req , res) {
   const activityData = req.body;
   Activity.create(activityData).then(function () {
-    return res.json("Activity succesfuly added!");
+    return res.json("Activity succesfuly added! The activity will be verified before it is published. You can view it in My Activities in the meantime.");
   });
 });
 
