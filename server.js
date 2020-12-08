@@ -20,7 +20,6 @@ const corsOptions = {
   origin: 'https://discoverdoo.com',
 }
 
-
 async function runServer() {
   await connect();
   server.use(cors(corsOptions));
