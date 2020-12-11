@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const activitySchema = new mongoose.Schema({
   name: { type: String, required: true, maxlength: 128 },
-  description: { type: String, required: true, maxlength: 512 },
+  description: { type: String, required: true, maxlength: 2048 },
   image: { type: String, required: true, maxlength: 128 },
   ageFrom: { type: String, required: true, maxlength: 128 },
   ageTo: { type: String, required: true, maxlength: 128 },
